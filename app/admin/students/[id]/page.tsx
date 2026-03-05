@@ -3,9 +3,15 @@ import Link from "next/link";
 
 export const metadata = { title: "Student Profile" };
 
-export default function StudentProfilePage({ params }: { params: { id: string } }) {
+export default async function StudentProfilePage({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const { id } = await params;
+
   const student = {
-    id: params.id,
+    id,
     name: "Rahul Verma",
     mobile: "+91 98000 12345",
     email: "rahul.verma@example.com",
